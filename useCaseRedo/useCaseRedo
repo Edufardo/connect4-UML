@@ -1,0 +1,15 @@
+@startuml
+
+state B as " "
+state C as " "
+state E as " "
+state DIAMOND <<choice>>
+
+[*] --> IN_GAME
+IN_GAME --> B: Current player requests Redo
+B --> DIAMOND: System shows updated board
+DIAMOND --> C
+DIAMOND --> E
+C --> [*]: System allows Play\nSystem allows Redo\nSystem allows Undo if undoable
+E --> [*]:  System allows Play\nSystem allows Undo if undoable
+@enduml

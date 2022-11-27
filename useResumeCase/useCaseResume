@@ -1,0 +1,14 @@
+@startuml
+
+state A as " "
+state B as " "
+
+[*] -down-> OUT_GAME 
+OUT_GAME --> A : Player request to resume a new game
+A --> B : System request to continue
+B --> INITIAL : Player introduce yes
+B --> EXIT : Player introduce no
+EXIT --> [*]
+INITIAL --> [*]
+
+@enduml
