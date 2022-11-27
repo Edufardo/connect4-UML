@@ -1,0 +1,12 @@
+@startuml
+
+state A as " "
+state B as " "
+
+[*] -down-> INITIAL 
+INITIAL --> A : Player request a new game
+A --> B : System shows the title and empty board
+B --> IN_GAME : System allows play
+IN_GAME --> [*]
+
+@enduml

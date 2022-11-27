@@ -1,0 +1,31 @@
+@startuml
+
+class Conecta4
+class Turn
+class Player
+class Combination
+class Board
+class Huecos
+class Free
+class Full
+class PosibleCombination
+class Ficha
+enum Color
+class Result
+class Success
+
+Conecta4 *-down-> Turn
+Turn -down-> Player
+Conecta4 *-down-> "2" Player
+Conecta4 *-down-> Board
+Board *-down-> Huecos
+Combination *-down-> "4" Ficha
+Combination <|-down- PosibleCombination
+Player .down.> PosibleCombination
+Board *-down-> "1..*" PosibleCombination
+Board *-down-> Result
+Result *-down-> Success
+Ficha *-down-> Color
+Huecos -down-> Free
+Huecos -down-> Full
+@enduml

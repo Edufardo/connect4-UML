@@ -1,0 +1,36 @@
+@startuml
+
+state DIAMOND <<choice>>
+state DIAMOND2 <<choice>>
+state DIAMOND3 <<choice>>
+state DIAMOND4 <<choice>>
+state A as " "
+state B as " "
+state C as " "
+state D as " "
+state E as " "
+state F as " "
+state G as " "
+state H as " "
+
+[*] -down-> IN_GAME
+IN_GAME --> DIAMOND : Current turn player request play
+DIAMOND -down-> A : [pieces of current board player 0..40]
+DIAMOND -down-> B : [pieces of current board player 41]
+A -down-> C : System requires to introduce a column
+B -down-> C 
+C -down-> D : Current player introduces a coordinate
+C -down-> E 
+D -down-> DIAMOND2 
+DIAMOND2 -down-> F : System shows updated board
+DIAMOND2 -down-> G : System shows error
+E -down-> DIAMOND3  
+DIAMOND3 -down-> G : System shows error
+DIAMOND3 -down-> H : All tokens on board
+H -down-> DIAMOND4
+DIAMOND4 -down-> [*] : Tie, System allows resume
+DIAMOND4 -down-> [*] : Winner, System allows resume
+G -down-> [*] : System allows resume
+F -down-> [*] : Tie, System allows resume
+F -down-> [*] : Winner, System allows resume
+@enduml

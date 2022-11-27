@@ -1,0 +1,17 @@
+@startuml
+
+state DIAMOND <<choice>>
+state DIAMOND2 <<choice>>
+
+[*] -down-> GAME
+GAME --> IN_GAME : Start
+IN_GAME --> DIAMOND : Play
+IN_GAME --> DIAMOND : Undo
+IN_GAME --> DIAMOND : Redo
+DIAMOND --> OUT_GAME : [finished]
+OUT_GAME --> DIAMOND2 : Resume
+DIAMOND2 -up-> GAME : [continued]
+DIAMOND2 --> EXIT
+EXIT --> [*]
+
+@enduml

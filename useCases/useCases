@@ -1,0 +1,16 @@
+@startuml
+
+actor Actor
+usecase Start
+usecase Play
+usecase Resume
+usecase Undo
+usecase Redo
+
+Actor -> Start
+Actor -> Play
+Actor -> Resume
+Actor -> Undo
+Actor -> Redo
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+
+package connect4
+package types as "connect4.types"
+package models as "connect4.models"
+package views as "connect4.views"
+
+connect4 ..> models
+connect4 ..> views
+views ..> models
+views ..> types
+models ..> types
+
+@enduml
